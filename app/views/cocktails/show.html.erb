@@ -8,7 +8,11 @@
 
 <% end %>
 
+<% if @cocktail.photo.attached? %>
 <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+<img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/05/22/13/gin-cocktails.jpg?w968h681" alt="cocktails">
+<% end %>
 
 <%= link_to "Go back", cocktails_path %>
 <%= link_to "Edit", edit_cocktail_path(@cocktail) %>
