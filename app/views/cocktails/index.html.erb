@@ -1,9 +1,14 @@
 <h1>Cocktails...</h1>
 
+<%= cl_image_tag("ssf5zrr0obx7wmlib1yu",
+      width: 400, height: 300, crop: :fill) %>
+
 <% @cocktails.each do |cocktail| %>
   <h3><%= cocktail.name %></h3>
   <p><%= link_to "See details", cocktail_path(cocktail.id) %></p>
 
 <% end %>
+
+
 
 <%= link_to "Add cocktail", new_cocktail_path %>

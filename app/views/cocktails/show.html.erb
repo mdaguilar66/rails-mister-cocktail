@@ -1,4 +1,15 @@
 <h2><%= @cocktail.name %></h2>
 
+<% @cocktail.doses.each do |dose| %>
+
+<%= dose.description %>
+<%= dose.ingredient.name %>
+
+
+<% end %>
+
+<%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+
 <%= link_to "Go back", cocktails_path %>
+<%= link_to "Edit", edit_cocktail_path(@cocktail) %>
 <%= link_to "Add dose", new_cocktail_dose_path(@cocktail) %>

@@ -1,5 +1,5 @@
 class CocktailsController < ApplicationController
-def index
+  def index
     @cocktails = Cocktail.all
   end
 
@@ -20,9 +20,23 @@ def index
     end
   end
 
+  def edit
+    @cocktail = Cocktail.find(params[:id])
+  end
+
+  def update
+    @cocktail = Cocktail.find(params[:id])
+
+    if @cocktail.update(cocktail_params)
+      redirect_to cocktail_path(@cocktail.id)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :photo)
   end
 end
